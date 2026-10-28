@@ -1,0 +1,73 @@
+@media (max-width: 1050px) {
+  .section-shell { width: min(var(--max), calc(100% - 44px)); }
+  .nav-wrap { width: calc(100% - 44px); }
+  .hero { column-gap: 30px; min-height: 620px; }
+  .hero-art { min-height: 410px; }
+  .hero h1 { font-size: clamp(3.4rem, 7vw, 5.8rem); }
+  .watch-layout { grid-template-columns: 1.3fr .8fr; }
+  .featured-info { align-items: flex-start; flex-direction: column; }
+  .subscribe-card { padding: 38px; }
+  .subscribe-stamp { right: 25%; }
+  .contact { gap: 38px; }
+}
+@media (max-width: 800px) {
+  .desktop-nav, .nav-actions > .button { display: none; }
+  .menu-toggle { display: grid; }
+  .hero { grid-template-columns: 1fr; padding-top: 72px; row-gap: 44px; }
+  .hero-copy { padding-bottom: 0; }
+  .hero-art { width: min(100%, 540px); min-height: 420px; margin-inline: auto; }
+  .hero-bottom { margin-top: 36px; }
+  .section-pad { padding-block: 82px; }
+  .section-heading { grid-template-columns: 1fr; gap: 18px; }
+  .section-heading > p { max-width: 540px; }
+  .watch-layout { grid-template-columns: 1fr; }
+  .featured-info { flex-direction: row; align-items: end; }
+  .watch-aside { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
+  .watch-aside .button { grid-column: 1/-1; margin-top: 24px; }
+  .manifesto-inner { grid-template-columns: 1fr; gap: 50px; }
+  .manifesto-visual { width: min(100%, 480px); margin: auto; }
+  .manifesto-frame { min-height: 430px; }
+  .subscribe-card { flex-direction: column; align-items: flex-start; }
+  .subscribe-stamp { right: 10%; top: 20%; }
+  .contact { grid-template-columns: 1fr; gap: 25px; }
+}
+@media (max-width: 560px) {
+  .section-shell { width: calc(100% - 36px); }
+  .nav-wrap { width: calc(100% - 36px); height: 68px; }
+  .brand-mark { width: 34px; height: 34px; }
+  .brand-name { font-size: .82rem; }
+  .hero { padding-top: 56px; row-gap: 34px; }
+  .hero h1 { font-size: clamp(3.3rem, 15vw, 5rem); }
+  .hero-intro { font-size: .96rem; }
+  .hero-buttons { flex-direction: column; align-items: stretch; }
+  .hero-buttons .button { width: 100%; }
+  .hero-meta { font-size: .52rem; flex-wrap: wrap; }
+  .hero-art { min-height: 340px; padding: 13px; box-shadow: 9px 9px 0 var(--panel); }
+  .art-main { inset: 45px 0 42px; }
+  .art-glyph { font-size: 10rem; }
+  .art-label { font-size: .48rem; }
+  .art-sticker { right: 18px; bottom: 57px; }
+  .hero-bottom { font-size: .53rem; }
+  .scroll-line { width: 30px; }
+  .section-pad { padding-block: 66px; }
+  .watch { padding-top: 82px; }
+  .section-heading h2, .manifesto-copy h2, .contact-intro h2 { font-size: clamp(2.7rem, 13vw, 4rem); }
+  .thumb-art { min-height: 230px; }
+  .featured-info { flex-direction: column; align-items: flex-start; padding: 18px; }
+  .watch-aside { grid-template-columns: 1fr; padding: 18px; }
+  .watch-aside .button { grid-column: auto; }
+  .library-heading { align-items: flex-start; flex-direction: column; margin-top: 54px; }
+  .video-grid { grid-template-columns: 1fr; }
+  .video-fallback { min-height: 155px; }
+  .manifesto-frame { min-height: 350px; padding: 18px; }
+  .manifesto-big { font-size: clamp(3.4rem, 16vw, 5rem); }
+  .subscribe { padding-block: 70px; }
+  .subscribe-card { padding: 28px 22px; gap: 25px; }
+  .subscribe-copy h2 { font-size: 2.8rem; }
+  .subscribe-stamp { right: 7%; top: 22%; font-size: .7rem; border-width: 3px; }
+  .contact-panel { align-items: flex-start; flex-direction: column; padding: 23px; }
+  .contact-panel .button { width: 100%; }
+  .footer-top { padding-block: 24px; flex-wrap: wrap; }
+  .footer-top > p { order: 3; width: 100%; }
+  .footer-bottom { padding-block: 18px; align-items: flex-start; flex-direction: column; gap: 10px; }
+}
