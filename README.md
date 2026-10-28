@@ -1,39 +1,52 @@
 # GenjutsuCODM creator website
 
-A responsive creator website built with plain HTML, CSS, and JavaScript. It is designed around Genjutsu as a creator brand, with CODM as the current core rather than the only possible future category.
+Responsive creator website built with plain HTML, CSS and JavaScript, with Vercel serverless routes for YouTube data and contact-form email.
 
-## Run locally
+## Deploy to Vercel
 
-Open `index.html` in a browser, or use a local static server (recommended if testing fetch/API functionality). No build step is required.
+1. Push the contents of this folder to a GitHub repository or import the project directly into Vercel.
+2. In Vercel, open **Project Settings → Environment Variables**.
+3. Add the variables below to **Preview** and **Production**.
+4. Redeploy after saving environment variables.
 
-## Included
+## Environment variables
 
-- Responsive navigation and mobile menu
-- Dark/light theme toggle with a saved preference
-- Reduced-motion support and scroll reveals
-- YouTube channel links throughout
-- Optional recent-video integration using the YouTube Data API v3
-- Honest fallback links when the API is not configured
-- SEO and Open Graph metadata
+### YouTube channel data
 
-## YouTube API (optional)
+- `YOUTUBE_API_KEY`: YouTube Data API v3 key from Google Cloud. Enable **YouTube Data API v3** for the Google Cloud project.
 
-The website works without an API key. To load actual recent video titles, thumbnails, dates, and view counts:
+This powers the live subscriber count, total channel views, total uploaded videos, and recent-upload cards. The API route uses the configured channel ID in `api/youtube.js`; verify it is the correct channel before launch.
 
-1. Create a YouTube Data API v3 key in Google Cloud Console.
-2. Deploy the project to Vercel.
-3. Add `YOUTUBE_API_KEY` in the Vercel project's Environment Variables.
-4. Redeploy.
+### Contact form email
 
-The API key belongs only in the hosting provider's environment variables, never in browser JavaScript or Git.
+The contact form sends submissions to **genjutsucodm@gmail.com** using Resend.
 
-The `api/youtube.js` route uses the channel ID from the previous project configuration. Confirm the ID still resolves to the intended channel before launch.
+- `RESEND_API_KEY`: API key created in your [Resend dashboard](https://resend.com/api-keys).
+- `RESEND_FROM_EMAIL`: A sender identity on a domain verified in Resend, for example `Genjutsu Website <website@your-verified-domain.com>`. Replace the example with an actual sender address on a domain you have verified.
+
+Steps:
+
+1. Create a Resend account and add a domain you control.
+2. Follow Resend's DNS instructions to verify that domain.
+3. Create an API key and add both environment variables in Vercel.
+4. Select **Preview** and **Production** for both variables if you want the contact form to work on preview deployments and the live site.
+5. Redeploy and test the form using an email address you can access.
+
+The sender domain must be verified by Resend; the recipient is fixed in `api/contact.js` as `genjutsucodm@gmail.com`. Replies from the inbox can be sent directly to the visitor because the visitor's address is included as `reply_to`. Do not put API keys in frontend JavaScript or commit them to Git.
+
+Resend may restrict sending while an account is in testing mode. Complete its sender/domain verification before relying on the form for public enquiries.
+
+## Local preview
+
+Open `index.html` for a static preview. The Vercel API routes (`/api/youtube` and `/api/contact`) require Vercel deployment or a compatible local Vercel dev environment to work.
 
 ## Before publishing
 
-- Confirm the domain and replace `https://genjutsu.com.ng/` in the canonical Open Graph metadata if you choose a different domain.
-- Add a dedicated business email when ready; the contact section intentionally links to the YouTube channel instead of pretending an unconnected form works.
-- Add your own creator photo, logo, and video thumbnail/brand assets if desired.
-- Only add social links that you actually own and want to promote.
-- The Discord card was removed because no real invite URL was provided.
-- Check that the current channel handle is `@GenjutsuCODM` before publishing.
+- Confirm the domain in the Open Graph metadata matches your final domain.
+- Confirm the YouTube channel ID and current channel handle are correct.
+- Test contact-form delivery and reply-to behavior.
+- The contact form includes basic validation and a hidden honeypot field; add stronger rate limiting if the form receives spam.
+
+## Channel profile picture
+
+The same image file is reused across the header, hero artwork, featured-video artwork, creator section, and footer: `images/genjutsu-profile.png`. Replace that file with your YouTube channel profile picture (keep the same filename and PNG format) and it will update across the website automatically. The included image is only a temporary placeholder. The rotating rings and animated portrait treatment are preserved.

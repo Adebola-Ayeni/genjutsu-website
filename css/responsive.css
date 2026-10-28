@@ -11,6 +11,9 @@
   .contact { gap: 38px; }
 }
 @media (max-width: 800px) {
+  .stats-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .stat-card { min-height: 145px; padding: 20px; }
+  .stat-value { font-size: clamp(2rem, 7vw, 3.3rem); }
   .desktop-nav, .nav-actions > .button { display: none; }
   .menu-toggle { display: grid; }
   .hero { grid-template-columns: 1fr; padding-top: 72px; row-gap: 44px; }
@@ -32,9 +35,14 @@
   .contact { grid-template-columns: 1fr; gap: 25px; }
 }
 @media (max-width: 560px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-card { min-height: 118px; }
+  .stat-card + .stat-card { border-left: 0; border-top: 1px solid var(--line); }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form .button { width: 100%; }
   .section-shell { width: calc(100% - 36px); }
   .nav-wrap { width: calc(100% - 36px); height: 68px; }
-  .brand-mark { width: 34px; height: 34px; }
+  .brand-avatar { width: 36px; height: 36px; border-radius: 11px 11px 11px 4px; }
   .brand-name { font-size: .82rem; }
   .hero { padding-top: 56px; row-gap: 34px; }
   .hero h1 { font-size: clamp(3.3rem, 15vw, 5rem); }
@@ -44,7 +52,7 @@
   .hero-meta { font-size: .52rem; flex-wrap: wrap; }
   .hero-art { min-height: 340px; padding: 13px; box-shadow: 9px 9px 0 var(--panel); }
   .art-main { inset: 45px 0 42px; }
-  .art-glyph { font-size: 10rem; }
+  .art-profile-wrap { width: min(57%, 220px); padding: 7px; }
   .art-label { font-size: .48rem; }
   .art-sticker { right: 18px; bottom: 57px; }
   .hero-bottom { font-size: .53rem; }
