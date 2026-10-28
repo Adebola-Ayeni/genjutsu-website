@@ -48,6 +48,7 @@ html[data-theme="light"] {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
+  overflow-x: clip;
 }
 
 body {
