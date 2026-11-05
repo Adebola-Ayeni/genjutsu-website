@@ -16,6 +16,7 @@
   --max: 1200px;
   --ease: cubic-bezier(.2,.75,.25,1);
 }
+
 html[data-theme="light"] {
   color-scheme: light;
   --bg: #f2f0e9;
@@ -165,24 +166,109 @@ html[data-theme="light"] .moon-icon { display: block; }
 .data-note { margin: 18px 0 0; color: var(--faint); font-size: .75rem; }
 
 /* About / manifesto */
-.manifesto { background: var(--bg-soft); }
-.manifesto-inner { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(48px, 8vw, 110px); }
-.manifesto-visual { position: relative; padding: 0 18px 18px 0; }
-.manifesto-frame { min-height: 500px; position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 24px; background: var(--red); color: #fff; overflow: hidden; }
-.manifesto-profile { position: absolute; width: 210px; height: 210px; right: -28px; bottom: -30px; object-fit: cover; border: 7px solid rgba(255,255,255,.25); border-radius: 35% 35% 35% 12%; opacity: .2; transform: rotate(-12deg); }
-.frame-tag, .frame-foot { position: relative; z-index: 1; font-size: .62rem; }
-.manifesto-big { position: relative; z-index: 1; font-size: clamp(3.2rem, 6vw, 5.5rem); font-weight: 700; line-height: .88; letter-spacing: -.08em; }
-.manifesto-big span { color: #181816; }
-.manifesto-visual::after { content: ""; position: absolute; z-index: -1; inset: 18px 0 0 18px; border: 1px solid var(--line); }
-.manifesto-side { position: absolute; right: -17px; top: 50%; writing-mode: vertical-rl; color: var(--muted); font-size: .6rem; }
-.manifesto-copy h2 { margin-bottom: 25px; }
-.manifesto-copy > p:not(.kicker) { color: var(--muted); line-height: 1.85; margin: 0 0 18px; }
-.principle-list { margin: 28px 0 30px; border-top: 1px solid var(--line); }
-.principle-list > div { display: grid; grid-template-columns: 42px 1fr; gap: 10px; padding: 15px 0; border-bottom: 1px solid var(--line); }
-.principle-list span { color: var(--red); font: .72rem var(--mono); padding-top: 3px; }
-.principle-list p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.65; }
-.principle-list strong { color: var(--text); }
+.manifesto {
+  background: var(--bg-soft);
+}
 
+.manifesto-inner {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  align-items: center;
+  gap: clamp(48px, 8vw, 110px);
+}
+
+.manifesto-visual {
+  position: relative;
+  padding: 0 18px 18px 0;
+}
+
+.manifesto-frame {
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  background: var(--red);
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Portrait fills the entire frame */
+.manifesto-profile {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: 0;
+  border-radius: 0;
+  opacity: 1;
+  transform: none;
+}
+
+/* Dark overlay keeps the text readable */
+.manifesto-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.15) 0%,
+    rgba(0,0,0,.05) 40%,
+    rgba(0,0,0,.65) 100%
+  );
+  pointer-events: none;
+}
+
+.frame-tag,
+.frame-foot {
+  position: relative;
+  z-index: 1;
+  font-size: .62rem;
+}
+
+.manifesto-big {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: .88;
+  letter-spacing: -.08em;
+}
+
+.manifesto-big span {
+  color: var(--red);
+}
+
+.manifesto-visual::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 18px 0 0 18px;
+  border: 1px solid var(--line);
+}
+
+.manifesto-side {
+  position: absolute;
+  right: -17px;
+  top: 50%;
+  writing-mode: vertical-rl;
+  color: var(--muted);
+  font-size: .6rem;
+}
+
+.manifesto-copy h2 {
+  margin-bottom: 25px;
+}
+
+.manifesto-copy > p:not(.kicker) {
+  color: var(--muted);
+  line-height: 1.85;
+  margin: 0 0 18px;
+}
 /* Channel stats */
 .channel-stats { padding-block: 58px 72px; }
 .stats-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
